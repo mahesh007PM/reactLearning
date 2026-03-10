@@ -1,78 +1,28 @@
 import { useState } from "react";
-import "./Style.css";
-function App() {
-  const initial_Value = ["A", "B", "C"];
-  const removeFirstElement = () => {
-    setArr((currentArr) => {
-      return currentArr.slice(1);
-    });
-  };
-  const removeAllB = (letter) => {
-    setArr((currentArr) => {
-      return currentArr.filter((element) => element !== letter);
-    });
-  };
-  const addToStart = (letter) => {
-    setArr((currentArr) => {
-      return [letter, ...currentArr];
-    });
-  };
-  const addToEnd = (letter) => {
-    setArr((currentArr) => {
-      return [...currentArr, letter];
-    });
-  };
-  const clear = () => {
-    setArr([]);
-  };
-  const reset = () => {
-    setArr(initial_Value);
-  };
 
-  const [arr, setArr] = useState(initial_Value);
+function App() {
+  const [name,setname]= useState('')
+  const [age,setage]= useState(0);
+
+  const substract = ()=>{
+    return setage((newage)=>
+      newage - 1)
+  }
+  const added = ()=>{
+    return setage((newage)=>
+      newage + 1)
+  }
+
   return (
     <>
-      <br />
-      <div className="btnClass">
-        <button
-          className="btn btn-primary btnClassli"
-          onClick={removeFirstElement}
-        >
-          removeFirstElement
-        </button>
+    <input type="text" value={name} onChange={(e)=>setname(e.target.value)}/>
 
-        <button
-          className="btn btn-secondary btnClassli"
-          onClick={() => removeAllB("B")}
-        >
-          Remove All B's
-        </button>
-
-        <button
-          className="btn btn-warning btnClassli"
-          onClick={() => addToStart("X")}
-        >
-          Add to start
-        </button>
-
-        <button
-          className="btn btn-danger btnClassli"
-          onClick={() => addToEnd("Z")}
-        >
-          Add to End
-        </button>
-
-        <button className="btn btn-info btnClassli" onClick={clear}>
-          Clear
-        </button>
-
-        <button className="btn btn-success btnClassli" onClick={reset}>
-          Reset
-        </button>
-      </div>
-      <div className="maincontent">
-        <p>{arr.join(",")}</p>
-      </div>
+    <div className="">
+      <button onClick={substract}>-</button>
+      {age}
+      <button onClick={added}>+</button>
+    </div>
+    <p>My name is {name} and i am {age} years old.</p>
     </>
   );
 }
