@@ -1,0 +1,20 @@
+.maincontent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+    border: 5px dotted rgb(164, 90, 102);
+    margin-top: 5rem;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.btnClass{
+    display: flex;
+    justify-content: space-evenly;
+flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.btnClassli{
+    margin: 1em;
+}
